@@ -1,0 +1,80 @@
+.gnav-header {
+    background-color: #eef1fe;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 设置 A 和 B 的整体布局 */
+.gnav-containerBetween {
+    display: flex;
+    justify-content: space-between; /* 左右分布 */
+    align-items: center; /* 垂直方向居中 */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* A组：左侧部分 */
+.gnav-left {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    gap: 10px; /* 控制子元素间距 */
+}
+
+.gnav-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Logo */
+.logo img {
+    width: 100px; /* Logo大小 */
+    height: auto;
+    margin-right: 10px; /* Logo与文字的间距 */
+}
+
+/* 导航链接 */
+.gnav-links {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* 控制链接间距 */
+    margin-left: 20px; /* 左侧导航的内边距 */
+}
+
+.gnav-links a {
+    text-decoration: none;
+    color: #003a9b;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.gnav-links a:hover {
+    text-decoration: underline;
+}
+
+/* B组：右侧部分 */
+.gnav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 控制搜索框和按钮的间距 */
+}
+
+.search-input {
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.search-button {
+    padding: 6px 12px;
+    background-color: #003a9b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #002b7a;
+}
