@@ -7,8 +7,8 @@
 /* 设置 A 和 B 的整体布局 */
 .gnav-containerBetween {
     display: flex;
-    justify-content: space-between; /* 左右分布 */
-    align-items: center; /* 垂直方向居中 */
+    justify-content: space-between;
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -16,8 +16,8 @@
 /* A组：左侧部分 */
 .gnav-left {
     display: flex;
-    align-items: center; /* 垂直居中 */
-    gap: 10px; /* 控制子元素间距 */
+    align-items: center;
+    gap: 10px;
 }
 
 .gnav-text {
@@ -26,55 +26,98 @@
     color: #333;
 }
 
+.text-gray {
+    font-size: 14px;
+    font-weight: bold;
+    color: dimgray;
+}
+
 /* Logo */
 .logo img {
-    width: 100px; /* Logo大小 */
+    width: 100px;
     height: auto;
-    margin-right: 10px; /* Logo与文字的间距 */
+    margin-right: 10px;
 }
 
-/* 导航链接 */
+/* 导航栏 */
 .gnav-links {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 15px; /* 控制链接间距 */
-    margin-left: 20px; /* 左侧导航的内边距 */
+    gap: 15px;
+    margin-left: 20px;
 }
 
+/* 导航项 */
 .gnav-links a {
     text-decoration: none;
-    color: #003a9b;
-    font-weight: bold;
+    color: black;
+    padding: 8px 12px;
+    position: relative;
     font-size: 14px;
+    font-weight: bold;
 }
 
-.gnav-links a:hover {
-    text-decoration: underline;
+/* 菜单选中线 */
+.gnav-links .underline {
+    position: absolute;
+    bottom: 0;
+    height: 4px;
+    background-color: #007bff;
+    transition: transform 0.3s ease, width 0.3s ease;
 }
 
-/* B组：右侧部分 */
+/* 右侧部分 */
 .gnav-right {
     display: flex;
     align-items: center;
-    gap: 10px; /* 控制搜索框和按钮的间距 */
+    gap: 10px;
 }
 
-.search-input {
-    padding: 6px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
+/* 登录按钮改为文本，并在悬停时显示一条细线 */
+.login-text {
+    text-decoration: none;
+    color: indianred;
+    font-size: 16px;
+    padding: 5px 10px;
+    position: relative;
+    font-weight: bold;
 }
 
-.search-button {
+.login-text:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 4px;
+    background-color: indianred;
+}
+
+/* 登录按钮样式 */
+.login-button {
     padding: 6px 12px;
-    background-color: #003a9b;
+    /*background-color: #003a9b;*/
+    background-color: #d9534f; /* 🔴 经典红色 (#d9534f) */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-.search-button:hover {
-    background-color: #002b7a;
+/*.login-button:hover {*/
+/*    background-color: #002b7a;*/
+/*}*/
+
+/* 悬停时颜色加深 */
+.login-button:hover {
+    background-color: #c9302c; /* 🔴 悬停时的深红色 */
+}
+
+/* 按钮点击时的颜色 */
+.login-button:active {
+    background-color: #ac2925; /* 🔴 更深的红色 */
 }

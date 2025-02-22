@@ -1,161 +1,117 @@
-// src/App.js
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./Header";
 
 function App() {
-    const [jobs, setJobs] = useState([]); // 存储职位数据
-    const [selectedJob, setSelectedJob] = useState(null); // 存储选中的职位
-    const [loading, setLoading] = useState(true); // 控制加载状态
+    const [jobs, setJobs] = useState([]);
+    const [selectedJob, setSelectedJob] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);
+    const jobsPerPage = 10;
+    const maxPageButtons = 5;
 
     useEffect(() => {
-        // 模拟 API 请求
         const fetchJobs = async () => {
-            const mockJobs = [
-                {
-                    title: "富士フィルムのオープンポジション",
-                    company: "富士フィルム株式会社",
-                    salary: "年収 400万円〜900万円",
-                    location: "東京都 港区",
-                    type: "正社員",
-                    features: ["完全週休二日制", "第二新卒歓迎", "産休・育休取得実績あり"],
-                },
-                {
-                    title: "オープンポジション",
-                    company: "ユニ・チャーム株式会社",
-                    salary: "年収 450万円〜650万円",
-                    location: "東京都 港区",
-                    type: "正社員",
-                    features: ["フレックスタイム制あり", "寮・社宅あり"],
-                },
-                {
-                    title: "富士フィルムのオープンポジション",
-                    company: "富士フィルム株式会社",
-                    salary: "年収 400万円〜900万円",
-                    location: "東京都 港区",
-                    type: "正社員",
-                    features: ["完全週休二日制", "第二新卒歓迎", "産休・育休取得実績あり"],
-                },                {
-                    title: "富士フィルムのオープンポジション",
-                    company: "富士フィルム株式会社",
-                    salary: "年収 400万円〜900万円",
-                    location: "東京都 港区",
-                    type: "正社員",
-                    features: ["完全週休二日制", "第二新卒歓迎", "産休・育休取得実績あり"],
-                },                {
-                    title: "富士フィルムのオープンポジション",
-                    company: "富士フィルム株式会社",
-                    salary: "年収 400万円〜900万円",
-                    location: "東京都 港区",
-                    type: "正社員",
-                    features: ["完全週休二日制", "第二新卒歓迎", "産休・育休取得実績あり"],
-                },                {
-                    title: "富士フィルムのオープンポジション",
-                    company: "富士フィルム株式会社",
-                    salary: "年収 400万円〜900万円",
-                    location: "東京都 港区",
-                    type: "正社員",
-                    features: ["完全週休二日制", "第二新卒歓迎", "産休・育休取得実績あり"],
-                },                {
-                    title: "富士フィルムのオープンポジション",
-                    company: "富士フィルム株式会社",
-                    salary: "年収 400万円〜900万円",
-                    location: "東京都 港区",
-                    type: "正社員",
-                    features: ["完全週休二日制", "第二新卒歓迎", "産休・育休取得実績あり"],
-                },                {
-                    title: "富士フィルムのオープンポジション",
-                    company: "富士フィルム株式会社",
-                    salary: "年収 400万円〜900万円",
-                    location: "東京都 港区",
-                    type: "正社員",
-                    features: ["完全週休二日制", "第二新卒歓迎", "産休・育休取得実績あり"],
-                },                {
-                    title: "富士フィルムのオープンポジション",
-                    company: "富士フィルム株式会社",
-                    salary: "年収 400万円〜900万円",
-                    location: "東京都 港区",
-                    type: "正社員",
-                    features: ["完全週休二日制", "第二新卒歓迎", "産休・育休取得実績あり"],
-                },                {
-                    title: "富士フィルムのオープンポジション",
-                    company: "富士フィルム株式会社",
-                    salary: "年収 400万円〜900万円",
-                    location: "東京都 港区",
-                    type: "正社員",
-                    features: ["完全週休二日制", "第二新卒歓迎", "産休・育休取得実績あり"],
-                },                {
-                    title: "富士フィルムのオープンポジション",
-                    company: "富士フィルム株式会社",
-                    salary: "年収 400万円〜900万円",
-                    location: "東京都 港区",
-                    type: "正社員",
-                    features: ["完全週休二日制", "第二新卒歓迎", "産休・育休取得実績あり"],
-                },                {
-                    title: "富士フィルムのオープンポジション",
-                    company: "富士フィルム株式会社",
-                    salary: "年収 400万円〜900万円",
-                    location: "東京都 港区",
-                    type: "正社員",
-                    features: ["完全週休二日制", "第二新卒歓迎", "産休・育休取得実績あり"],
-                },
-            ];
+            const mockJobs = Array.from({ length: 50 }, (_, index) => ({
+                title: `職位 ${index + 1}`,
+                company: "サンプル会社",
+                salary: "年収 400万円〜900万円",
+                location: "東京都 港区",
+                type: "正社員",
+                features: ["完全週休二日制", "第二新卒歓迎", "産休・育休取得実績あり","テスト１１１","テスト１１１","テスト１１１","テスト１１１"],
+            }));
 
             setTimeout(() => {
-                setJobs(mockJobs); // 更新职位数据
-                setLoading(false); // 关闭加载状态
+                setJobs(mockJobs);
+                setLoading(false);
             }, 1000);
         };
 
         fetchJobs();
     }, []);
 
+    useEffect(() => {
+        if (jobs.length > 0 && !selectedJob) {
+            setSelectedJob(jobs[0]);
+        }
+    }, [jobs]);
+
+    const totalPages = Math.ceil(jobs.length / jobsPerPage);
+    const indexOfLastJob = currentPage * jobsPerPage;
+    const indexOfFirstJob = indexOfLastJob - jobsPerPage;
+    const currentJobs = jobs.slice(indexOfFirstJob, indexOfLastJob);
+
+    let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
+    let endPage = startPage + maxPageButtons - 1;
+    if (endPage > totalPages) {
+        endPage = totalPages;
+        startPage = Math.max(1, endPage - maxPageButtons + 1);
+    }
+
     return (
         <div className="App">
             <Header />
-
-            {/* Header */}
             <header className="App-header">
                 <h1>ITサポート連携 | SES Bridge</h1>
             </header>
 
-            {/* Search Bar */}
             <div className="search-bar">
                 <input type="text" placeholder="職種、キーワード、会社名" />
                 <button>求人検索</button>
             </div>
 
-            {/* 主体内容：左侧职位列表 + 右侧职位详情 */}
             <div className="content">
-                {/* 左侧职位列表 */}
                 <div className="job-list">
                     {loading ? (
                         <p>読み込み中...</p>
                     ) : (
-                        jobs.map((job, index) => (
-                            <div
-                                className={`job-card ${selectedJob === job ? "selected" : ""}`}
-                                key={index}
-                                onClick={() => setSelectedJob(job)}
-                            >
-                                <h2>{job.title}</h2>
-                                <p>{job.company}</p>
-                                <p>{job.salary}</p>
-                                <p>{job.location}</p>
-                                <p>{job.type}</p>
-                                <div className="features">
-                                    {job.features.map((feature, idx) => (
-                                        <span key={idx} className="feature">
-                      {feature}
-                    </span>
+                        <>
+                            {currentJobs.map((job, index) => (
+                                <div
+                                    className={`job-card ${selectedJob === job ? "selected" : ""}`}
+                                    key={index}
+                                    onClick={() => setSelectedJob(job)}
+                                >
+                                    <h2>{job.title}</h2>
+                                    <p>{job.company}</p>
+                                    <p>{job.salary}</p>
+                                    <p>{job.location}</p>
+                                    <p>{job.type}</p>
+                                    <div className="features">
+                                        {job.features.map((feature, idx) => (
+                                            <span key={idx} className="feature">
+                                                {feature}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                            <div className="pagination-container">
+                                <div className="pagination">
+                                    {currentPage > 1 && (
+                                        <button className="pagination-btn" onClick={() => setCurrentPage(currentPage - 1)}>
+                                            &lt;
+                                        </button>
+                                    )}
+                                    {[...Array(endPage - startPage + 1)].map((_, i) => (
+                                        <button
+                                            key={i}
+                                            onClick={() => setCurrentPage(startPage + i)}
+                                            className={`pagination-btn ${currentPage === startPage + i ? "active" : ""}`}
+                                        >
+                                            {startPage + i}
+                                        </button>
                                     ))}
+                                    {currentPage < totalPages && (
+                                        <button className="pagination-btn" onClick={() => setCurrentPage(currentPage + 1)}>
+                                            &gt;
+                                        </button>
+                                    )}
                                 </div>
                             </div>
-                        ))
+                        </>
                     )}
                 </div>
-
-                {/* 右侧职位详情 */}
                 <div className="job-details">
                     {selectedJob ? (
                         <>
