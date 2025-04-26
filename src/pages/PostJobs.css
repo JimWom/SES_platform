@@ -1,0 +1,175 @@
+/* src/pages/PostJobs.css */
+
+.post-jobs-page {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.post-jobs-page h1 {
+    font-size: 32px;
+    color: #003a9b;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.ai-option {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.ai-option label {
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+}
+
+.ai-area {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.ai-area textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.analyze-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #003a9b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.analyze-btn:hover {
+    background-color: #0056b3;
+}
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #003a9b;
+    text-align: left; /* ✅ 加这一行，靠左对齐 */
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    background-color: #003a9b;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* 禁用状态下输入框和文本框变灰 */
+input:disabled,
+textarea:disabled {
+    background-color: #f0f0f0;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* --- 这里是新增：技能输入区域 --- */
+.skill-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.skill-item input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-skill-button {
+    background-color: #003a9b;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    margin-top: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: auto; /* ✅ 自动宽度，跟随文字 */
+    align-self: flex-end;
+}
+
+.add-skill-button:hover {
+    background-color: #0056b3;
+}
+
+.remove-skill-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-skill-button:hover {
+    background-color: #c9302c;
+}
+
+.form-group-inline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.inline-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #003a9b;
+    white-space: nowrap;
+}
+
+.short-input {
+    width: 200px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

@@ -24,11 +24,11 @@ function Header() {
                     <div className="logo">
                         <img src="/SESBridge.png" alt="SES Bridge" />
                     </div>
-                    <div className="gnav-text">SESで業界活力を</div>
+                    <div className="gnav-text">企業・エンジニア・橋をかけ</div>
 
                     {/* 导航栏 */}
                     <nav className="gnav-links" ref={navRef}>
-                        {["案件を探す", "企業を探す", "人材を探す"].map((text, index) => (
+                        {["案件を探す", "企業を探す", "人材を探す","案件を掲載"].map((text, index) => (
                             <a
                                 key={index}
                                 href={`#${index}`}
