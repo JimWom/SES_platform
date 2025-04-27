@@ -1,49 +1,46 @@
 /* src/pages/PostJobDetail.css */
 
-.job-detail-page {
+.post-job-detail-page {
     max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-.job-title {
-    font-size: 28px;
-    color: #003a9b;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.job-summary {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.toggle-button {
-    background-color: #003a9b;
+.back-button {
+    background-color: #0070f3;
     color: white;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
-    font-size: 14px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
     cursor: pointer;
     margin-bottom: 20px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-.toggle-button:hover {
-    background-color: #0056b3;
+.back-button:hover {
+    background-color: #005bb5;
 }
 
-.job-fulltext {
-    background-color: #f9f9f9;
-    padding: 20px;
+.job-detail-card {
+    background-color: #fff;
+    padding: 30px;
     border-radius: 8px;
-    font-size: 14px;
-    color: #555;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.job-detail-card h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.job-detail-card p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.job-detail-card .description {
+    margin-top: 20px;
     line-height: 1.6;
 }

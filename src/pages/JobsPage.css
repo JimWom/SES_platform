@@ -1,194 +1,60 @@
-/* 全局字体设置 */
-.App {
-    font-family: Arial, sans-serif;
-}
+/* src/pages/JobsPage.css */
 
-/* 头部样式 */
-.App-header {
-    background-color: #003a9b;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-/* 搜索栏样式 */
-.search-bar {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-/* 搜索框输入框 */
-.search-bar input {
-    padding: 10px;
-    width: 300px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s;
-}
-
-/* 搜索框输入框 - 鼠标点击时高亮 */
-.search-bar input:focus {
-    border-color: #0056b3;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
-}
-
-/* 搜索按钮 */
-.search-bar button {
-    padding: 10px;
-    background-color: #003a9b;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-/* 搜索按钮 - 鼠标悬停时颜色变化 */
-.search-bar button:hover {
-    background-color: #0056b3;
-}
-
-/* 让整个页面可滚动 */
-body {
-    overflow-y: scroll;
-}
-
-/* 页面主要内容 - 左右两栏布局 */
-.content {
-    display: flex;
-    width: 95%;
-    max-width: 1400px;
+.jobs-page {
+    width: 100%;
+    max-width: 1200px; /* 原来是1000px，稍微宽一点 */
     margin: 0 auto;
-    height: auto;
+    padding: 30px 20px;
 }
 
-/* 左侧职位列表（让它可以自由滚动） */
 .job-list {
-    width: 60%;
-    border-right: 1px solid #ddd;
-    padding: 20px;
-    overflow-y: auto;
-    max-height: 100vh; /* 让职位列表可以滚动 */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.separator {
-    width: 20px; /* 你可以根据需要调整宽度 */
-}
-
-/* 右侧职位详情 */
-.job-details {
-    width: 40%;
-    padding: 20px 40px 20px 20px;
-    scrollbar-gutter: stable;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-    background: white;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    box-shadow: -2px 0 4px rgba(0, 0, 0, 0.4);
-
-    /* ✅ 左上、右上、左下、右下都加圆角 */
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
-
-/* 右侧职位详情 - 鼠标悬停时增加阴影 */
-.job-details:hover {
-    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
-}
-
-/* 职位卡片 */
 .job-card {
-    border: 1px solid #ddd;
+    background-color: #fff;
     padding: 20px;
-    margin: 10px;
-    width: 90%;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    border: 1px solid #dddddd; /* 原来是#eee，改深一点 */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.60); /* 原来是0.05，增强一点 */
+    transition: box-shadow 0.3s ease;
 }
 
-/* 职位卡片 - 鼠标悬停时增加阴影与微小放大 */
 .job-card:hover {
-    background: #f5f5f5;
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); /* 鼠标悬浮时更明显 */
 }
 
-/* 选中职位卡片的样式 */
-.job-card.selected {
-    background: #e6f7ff;
-    border-left: 5px solid #007bff;
-    transition: border-color 0.3s;
-}
-
-/* 选中职位卡片 - 鼠标悬停时微调颜色 */
-.job-card.selected:hover {
-    background: #d5efff;
-    border-left: 5px solid #0056b3;
-}
-
-/* 右侧特征标签 */
 .features {
     margin-top: 10px;
 }
 
-/* 单个特征标签 */
 .feature {
     display: inline-block;
-    background-color: #eef1fe;
-    color: #003a9b;
-    padding: 5px 10px;
-    margin: 5px;
-    border-radius: 3px;
+    background-color: #e7f3ff;
+    color: #0070f3;
+    padding: 4px 8px;
+    margin-right: 8px;
+    border-radius: 4px;
     font-size: 12px;
-    transition: background 0.3s, color 0.3s;
-}
-
-/* 特征标签 - 鼠标悬停时变色 */
-.feature:hover {
-    background-color: #003a9b;
-    color: white;
 }
 
 .pagination-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
+    text-align: center;
 }
 
-.pagination {
-    display: flex;
-    gap: 8px;
-}
-
-.pagination-btn {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    background-color: white;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.pagination-btn:hover {
-    background-color: #003a9b;
-    color: white;
-    transform: scale(1.1);
-}
-
-.pagination-btn.active {
-    background-color: #003a9b;
-    color: white;
-    font-weight: bold;
+.pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
     border: none;
+    background-color: #eee;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #0070f3;
+    color: white;
 }
